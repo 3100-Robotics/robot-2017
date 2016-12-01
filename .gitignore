@@ -4,3 +4,7 @@
 # build files
 .gradle/
 build/
+
+# project import files
+*.ipr
+*.iws
