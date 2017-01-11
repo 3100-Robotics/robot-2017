@@ -11,11 +11,14 @@ public class Robot extends IterativeRobot {
     public static MainDrive drive;
     public static OI oi;
     public static Shooter shooter;
+    public static BallGrabber pickup;
+
 
     public void robotInit() {
         drive = new MainDrive();
         oi = new OI();
         shooter = new Shooter();
+        pickup = new BallGrabber();
         SmartDashboard.putData("Main Drive", drive);
 
     }
