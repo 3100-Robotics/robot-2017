@@ -16,9 +16,9 @@ public class Robot extends IterativeRobot {
 
     public void robotInit() {
         drive = new MainDrive();
-        oi = new OI();
         shooter = new Shooter();
         pickup = new BallGrabber();
+        oi = new OI();
         SmartDashboard.putData("Main Drive", drive);
 
     }

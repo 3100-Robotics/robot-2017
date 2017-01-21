@@ -1,24 +1,25 @@
 package org.usfirst.frc.team3100;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 
 public class RobotMap {
-    public static final int controller = 1;
-    private static final int leftDriveChannel = 5;
-    private static final int rightDriveChannel = 6;
-    private static final int shootChannel = 1;
-    private static final int turretRotChannel = 3;
-    private static final int turretYChannel = 0;
-    private static final int ballMotorChannel = 0;
+    public static int controller = 1;
+    private static int leftDriveChannel = 1;
+    private static int rightDriveChannel = 2;
+    private static int shootChannel = 4;
+    private static int turretRotChannel = 3;
+    private static int turretYChannel = 5;
+    private static int ballMotorChannel = 6;
 
 
-    public static final XBoxController  controls = new XBoxController(controller);
-    public static final SpeedController leftMotor = new Victor(leftDriveChannel);
-    public static final SpeedController rightMotor = new Victor(rightDriveChannel);
-    public static final SpeedController shootMotor = new Victor(shootChannel);
-    public static final SpeedController turretRot = new Victor(turretRotChannel);
-    public static final SpeedController turretY = new Victor(turretYChannel);
-    public static final SpeedController ballMotor = new Victor(ballMotorChannel);
+    public static XBoxController  controls = new XBoxController(controller);
+    public static Spark leftMotor = new Spark(leftDriveChannel);
+    public static Spark rightMotor = new Spark(rightDriveChannel);
+    public static Spark shootMotor = new Spark(shootChannel);
+    public static Spark turretRot = new Spark(turretRotChannel);
+    public static Spark turretY = new Spark(turretYChannel);
+    public static Spark ballMotor = new Spark(ballMotorChannel);
 
 
 

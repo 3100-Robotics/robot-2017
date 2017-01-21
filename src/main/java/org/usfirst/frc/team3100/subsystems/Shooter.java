@@ -6,7 +6,7 @@ import org.usfirst.frc.team3100.commands.Shoot;
 
 public class Shooter extends Subsystem {
 
-    private SpeedController shooterMotor = RobotMap.shootMotor;
+    private Spark shooterMotor = RobotMap.shootMotor;
 
     public void initDefaultCommand() {
 
