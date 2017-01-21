@@ -12,7 +12,7 @@ public class RobotMap {
     private static int turretYChannel = 5;
     private static int ballMotorChannel = 6;
 
-
+    //For some reason these can't be defined as final.
     public static XBoxController  controls = new XBoxController(controller);
     public static Spark leftMotor = new Spark(leftDriveChannel);
     public static Spark rightMotor = new Spark(rightDriveChannel);

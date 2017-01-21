@@ -18,6 +18,7 @@ public class Robot extends IterativeRobot {
         drive = new MainDrive();
         shooter = new Shooter();
         pickup = new BallGrabber();
+        //subsystems have to be defined BEFORE oi, or it doesn't load onto the rio correctly
         oi = new OI();
         SmartDashboard.putData("Main Drive", drive);
 
