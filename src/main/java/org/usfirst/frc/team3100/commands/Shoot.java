@@ -7,7 +7,7 @@ public class Shoot extends Command {
     public Shoot() {
         super("Shoot");
         requires(Robot.shooter);
-        setTimeout(2);
+        setTimeout(20);
     }
 
     public void initialize() {

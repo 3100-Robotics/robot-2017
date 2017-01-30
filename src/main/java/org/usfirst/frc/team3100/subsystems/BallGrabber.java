@@ -15,7 +15,7 @@ public class BallGrabber extends Subsystem {
     }
 
     public void start() {
-        grabMotor.set(1);
+        grabMotor.set(-1);
     }
 
     public void stop() {

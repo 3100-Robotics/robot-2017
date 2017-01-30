@@ -13,7 +13,7 @@ public class Shooter extends Subsystem {
     }
 
     public void shoot() {
-        shooterMotor.set(1);
+        shooterMotor.set(-0.45);
     }
 
     public void stopShooting() {

@@ -8,9 +8,9 @@ public class RobotMap {
     private static int leftDriveChannel = 1;
     private static int rightDriveChannel = 2;
     private static int shootChannel = 4;
-    private static int turretRotChannel = 3;
+    private static int turretRotChannel = 6;
     private static int turretYChannel = 5;
-    private static int ballMotorChannel = 6;
+    private static int ballMotorChannel = 3;
 
     //For some reason these can't be defined as final.
     public static XBoxController  controls = new XBoxController(controller);

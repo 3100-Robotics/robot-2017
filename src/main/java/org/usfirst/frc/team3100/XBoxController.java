@@ -12,8 +12,8 @@ public class XBoxController extends Joystick{
     public static final int xButton = 3;
     public static final int yButton = 4;
 
-    public static final int rightBumper = 5;
-    public static final int leftBumper = 6;
+    public static final int rightBumper = 6;
+    public static final int leftBumper = 5;
 
     public static final int rightTrigger = 2;
     public static final int leftTrigger = 3;

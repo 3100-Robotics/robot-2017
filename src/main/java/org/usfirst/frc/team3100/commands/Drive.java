@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3100.commands;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3100.Robot;
 
 public class Drive extends Command{
@@ -10,11 +11,11 @@ public class Drive extends Command{
     }
 
     public void initialize() {
-
+        SmartDashboard.putString("Test", "Test Test Test");
     }
 
     public void execute() {
-        Robot.drive.drive(Robot.oi.getDriveMoveSpeed(), Robot.oi.getRotateSpeed());
+        Robot.drive.drive(Robot.oi.getDriveMoveSpeed() * -1, Robot.oi.getRotateSpeed() * -1);
     }
 
     public boolean isFinished() {
