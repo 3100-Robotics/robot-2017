@@ -2,6 +2,7 @@ package org.usfirst.frc.team3100;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team3100.commands.*;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 
 public class OI {
@@ -22,6 +23,7 @@ public class OI {
         pickupButton.whenPressed(new Pickup());
 
     }
+
 
 
 

@@ -11,7 +11,7 @@ public class Drive extends Command{
     }
 
     public void initialize() {
-        SmartDashboard.putString("Test", "Test Test Test");
+
     }
 
     public void execute() {

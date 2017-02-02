@@ -1,7 +1,9 @@
 package org.usfirst.frc.team3100;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 public class RobotMap {
     public static int controller = 1;
@@ -20,8 +22,6 @@ public class RobotMap {
     public static Spark turretRot = new Spark(turretRotChannel);
     public static Spark turretY = new Spark(turretYChannel);
     public static Spark ballMotor = new Spark(ballMotorChannel);
+    public static Encoder shootCheck = new Encoder(0,1);
 
-
-
-
-}
+    }
