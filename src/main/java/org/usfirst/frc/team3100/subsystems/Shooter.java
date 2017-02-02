@@ -18,7 +18,7 @@ public class Shooter extends PIDSubsystem {
     }
 
     public void initDefaultCommand() {
-        
+            
     }
 
     protected double returnPIDInput() {
