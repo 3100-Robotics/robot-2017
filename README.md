@@ -1,0 +1,2 @@
+# robot-2017
+Our code is mostly made up of commands and subsystems. Subsystems are what define each part of the robot, and shows what they are able to do. For example, the Shooter subsystem defines which motor it uses, and has functions to start and stop shooting. Commands are what activate subsystems, allowing us to string together different parts of our robot for a single use. Other than that, XBoxController defines all the buttons on the controller, RobotMap defines the motors and their ports, and OI defines what buttons start each command.
