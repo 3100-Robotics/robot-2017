@@ -13,6 +13,7 @@ public class Robot extends IterativeRobot {
     public static OI oi;
     public static Shooter shooter;
     public static BallGrabber pickup;
+    public static ClimbUp climb;
     public static Relay light;
 
 
@@ -20,6 +21,7 @@ public class Robot extends IterativeRobot {
         drive = new MainDrive();
         shooter = new Shooter();
         pickup = new BallGrabber();
+        climb = new ClimbUp();
         light = new Relay(0);
         //subsystems have to be defined BEFORE oi, or it doesn't load onto the rio correctly
         oi = new OI();
@@ -27,6 +29,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Shooter ", shooter);
         SmartDashboard.putData("Pickup", pickup);
         SmartDashboard.putData("Light", light);
+        SmartDashboard.putData("Climb", climb);
 
     }
 
