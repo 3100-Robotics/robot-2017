@@ -15,7 +15,8 @@ public class MainDrive extends Subsystem {
         setDefaultCommand(new Drive());
     }
 
-    public void drive(double move, double rotate) {
-        mainDrive.arcadeDrive(move, rotate);
+    public void drive(double move, double rotate, double modifier) {
+        double modifierFix = 1 - modifier;
+        mainDrive.arcadeDrive(move * modifierFix, rotate * modifierFix);
     }
 }

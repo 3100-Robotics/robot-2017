@@ -12,6 +12,7 @@ public class OI {
     private Button climbButton = new JoystickButton(controller, XBoxController.leftTrigger);
     public boolean ballGrabState = true;
     public boolean climbState = true;
+    public boolean slowState;
 
 
     public double getDriveMoveSpeed() {
@@ -20,10 +21,14 @@ public class OI {
     public double getRotateSpeed() {
         return controller.getRightStickX();
     }
+    public double getModifier() {
+        return controller.getRightTrigger();
+    }
     public OI() {
         shootButton.whenPressed(new Shoot());
         pickupButton.whenPressed(new Pickup());
         climbButton.whenPressed(new Climb());
+
 
 
     }

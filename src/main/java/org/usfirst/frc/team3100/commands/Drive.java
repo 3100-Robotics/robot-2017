@@ -2,6 +2,7 @@ package org.usfirst.frc.team3100.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3100.Robot;
+import org.usfirst.frc.team3100.XBoxController;
 
 public class Drive extends Command{
 
@@ -11,11 +12,10 @@ public class Drive extends Command{
     }
 
     public void initialize() {
-
     }
 
     public void execute() {
-        Robot.drive.drive(Robot.oi.getDriveMoveSpeed() * -1, Robot.oi.getRotateSpeed() * -1);
+        Robot.drive.drive(Robot.oi.getDriveMoveSpeed() * -1, Robot.oi.getRotateSpeed() * -1, Robot.oi.getModifier());
     }
 
     public boolean isFinished() {
