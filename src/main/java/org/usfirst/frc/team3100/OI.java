@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 public class OI {
     private XBoxController controller = RobotMap.controls;
-    private Button shootButton = new JoystickButton(controller, XBoxController.rightTrigger);
+    private Button shootButton = new JoystickButton(controller, XBoxController.leftBumper);
     private Button pickupButton = new JoystickButton(controller, XBoxController.rightBumper);
     private Button climbButton = new JoystickButton(controller, XBoxController.leftTrigger);
     public boolean ballGrabState = true;
     public boolean climbState = true;
-    public boolean slowState;
+    public boolean shootState = true;
 
 
     public double getDriveMoveSpeed() {

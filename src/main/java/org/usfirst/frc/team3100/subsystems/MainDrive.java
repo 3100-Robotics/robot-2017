@@ -18,5 +18,8 @@ public class MainDrive extends Subsystem {
     public void drive(double move, double rotate, double modifier) {
         double modifierFix = 1 - modifier;
         mainDrive.arcadeDrive(move * modifierFix, rotate * modifierFix);
+
+
+        /* SmartDashboard.putNumber("GyroVal", gyroInp); if (Math.abs(rotate) < EPSILON && Math.abs(move) > EPSILON) {     if (Math.abs(gyroInp) < EPSILON) {         mainDrive.arcadeDrive(move, rotate);     } else {         if(gyroInp > 0){             mainDrive.tankDrive(move, move + (0.01 * Math.abs(gyroInp)));         } else {             mainDrive.tankDrive(move + (0.01 * Math.abs(gyroInp)), move);         }      } } else {         mainDrive.arcadeDrive(move, rotate);         RobotMap.gyro.reset();     }     }     }     */
     }
 }

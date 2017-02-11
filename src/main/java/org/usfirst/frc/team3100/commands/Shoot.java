@@ -7,11 +7,17 @@ public class Shoot extends Command {
     public Shoot() {
         super("Shoot");
         requires(Robot.shooter);
-        setTimeout(20);
+
     }
 
     public void initialize() {
-        Robot.shooter.shoot();
+        if(Robot.oi.shootState == true) {
+            Robot.shooter.shoot();
+            Robot.oi.shootState = false;
+        } else {
+            Robot.shooter.stopShooting();
+            Robot.oi.shootState = true;
+        }
     }
 
     public void execute() {
@@ -19,15 +25,15 @@ public class Shoot extends Command {
     }
 
     public boolean isFinished() {
-        return isTimedOut();
+        return true;
     }
 
     public void end() {
-        Robot.shooter.stopShooting();
+
     }
 
     public void interrupted() {
-        end();
+
     }
 }
 

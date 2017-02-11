@@ -16,7 +16,7 @@ public class Climb extends Command {
     }
 
     public void initialize() {
-        if (Robot.oi.climbState == true) {
+            if (Robot.oi.climbState == true) {
             Robot.climb.start();
             Robot.oi.climbState = false;
         } else {
