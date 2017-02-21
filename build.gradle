@@ -8,7 +8,7 @@ plugins {
 frc {
     team = "3100"
     robotClass = "org.usfirst.frc.team3100.Robot"
-    rioHost = "roboRIO-3100-frc"
+    rioHost = "roboRIO-3100-frc.local"
     rioIP = "10.31.0.5"
 }
 

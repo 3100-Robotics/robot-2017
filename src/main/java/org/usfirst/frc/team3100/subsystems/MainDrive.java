@@ -1,25 +1,98 @@
 package org.usfirst.frc.team3100.subsystems;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3100.RobotMap;
 import org.usfirst.frc.team3100.commands.Drive;
+import java.lang.Math;
 
-public class MainDrive extends Subsystem {
+/**
+ * Created by nicco on 2/14/17.
+ */
+public class MainDrive extends PIDSubsystem {
 
-    private Spark leftMotor = RobotMap.leftMotor;
-    private Spark rightMotor = RobotMap.rightMotor;
+    private SpeedController leftMotor = RobotMap.leftMotor;
+    private SpeedController rightMotor = RobotMap.rightMotor;
     private RobotDrive mainDrive = new RobotDrive(leftMotor, rightMotor);
+    private Gyro gyro = RobotMap.gyro;
+    private double targetMove = 0;
+    private double targetRotate = 0;
+    private boolean DEBUG = true;
+    public static final double ROTATE_COEFF = 2;
+    public static final double JOYSTIC_EPSILON = 0.17;
 
-    public void initDefaultCommand() {
+    private static double setting = 0.0;
+
+    private double setHeading(double move, double rotate){
+
+
+
+        if((Math.abs(move) < JOYSTIC_EPSILON) && (Math.abs(rotate) < JOYSTIC_EPSILON)){
+            setting = gyro.getAngle();
+        } else if (Math.abs(rotate) >= JOYSTIC_EPSILON) {
+            setting = (setting + (rotate * ROTATE_COEFF));
+            if (rotate > 0){
+                //setting = 10;
+            } //else setting = -10;
+        }
+        return setting;
+
+    }
+
+
+    public MainDrive(){
+
+
+        super("MainDrive", 0.04,0,0.012);
+        setOutputRange(-1,1);
+        getPIDController().setContinuous();
+        enable();
+        SmartDashboard.putNumber("P", getPIDController().getP());
+        SmartDashboard.putNumber("I", getPIDController().getI());
+        SmartDashboard.putNumber("D", getPIDController().getD());
+        SmartDashboard.putNumber("SetPoint", getSetpoint());
+    }
+
+    @Override
+    protected void initDefaultCommand() {
         setDefaultCommand(new Drive());
     }
 
-    public void drive(double move, double rotate, double modifier) {
-        double modifierFix = 1 - modifier;
-        mainDrive.arcadeDrive(move * modifierFix, rotate * modifierFix);
-
-
-        /* SmartDashboard.putNumber("GyroVal", gyroInp); if (Math.abs(rotate) < EPSILON && Math.abs(move) > EPSILON) {     if (Math.abs(gyroInp) < EPSILON) {         mainDrive.arcadeDrive(move, rotate);     } else {         if(gyroInp > 0){             mainDrive.tankDrive(move, move + (0.01 * Math.abs(gyroInp)));         } else {             mainDrive.tankDrive(move + (0.01 * Math.abs(gyroInp)), move);         }      } } else {         mainDrive.arcadeDrive(move, rotate);         RobotMap.gyro.reset();     }     }     }     */
+    protected double returnPIDInput() {
+        SmartDashboard.putNumber("Gryo", gyro.getAngle());
+        return gyro.getAngle();
     }
+
+    protected void usePIDOutput(double output) {
+        SmartDashboard.putNumber("PID Output", output);
+        mainDrive.arcadeDrive((targetMove * (-1)), -output);
+    }
+    public void drive(double move, double rotate) {
+        targetMove = move;
+        setSetpoint(setHeading(move, rotate));
+
+        enable();
+
+        if (DEBUG) {
+            getPIDController().setPID(
+                    SmartDashboard.getNumber("P"),
+                    SmartDashboard.getNumber("I"),
+                    SmartDashboard.getNumber("D")
+            );
+        }
+        SmartDashboard.putNumber("P", getPIDController().getP());
+        SmartDashboard.putNumber("I", getPIDController().getI());
+        SmartDashboard.putNumber("D", getPIDController().getD());
+
+        SmartDashboard.putNumber("SetPoint", getSetpoint());
+
+        SmartDashboard.putNumber("Move", move);
+        SmartDashboard.putNumber("Rotate", rotate);
+
+        SmartDashboard.putNumber("Left Drive", leftMotor.get());
+        SmartDashboard.putNumber("Right Drive", rightMotor.get());
+    }
+
 }

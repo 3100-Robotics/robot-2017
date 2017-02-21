@@ -16,7 +16,7 @@ public class ClimbUp extends Subsystem {
     }
 
     public void start() {
-        climbMotor.set(-1);
+        climbMotor.set(-.5);
     }
 
     public void stop() {
