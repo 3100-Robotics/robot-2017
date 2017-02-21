@@ -1,32 +1,42 @@
 package org.usfirst.frc.team3100.commands;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3100.Robot;
+import org.usfirst.frc.team3100.RobotMap;
 import org.usfirst.frc.team3100.XBoxController;
+import org.usfirst.frc.team3100.subsystems.MainDrive;
 
 public class Drive extends Command{
 
-    public Drive() {
+    public Drive(){
         super("Drive");
         requires(Robot.drive);
     }
+    private static MainDrive drive = Robot.drive;
+    private static XBoxController controller = RobotMap.controls;
 
-    public void initialize() {
+    @Override
+    protected void initialize() {
+
     }
 
-    public void execute() {
-        Robot.drive.drive(Robot.oi.getDriveMoveSpeed() * -1, Robot.oi.getRotateSpeed() * -1, Robot.oi.getModifier());
+    @Override
+    protected void execute() {
+        drive.drive(controller.getLeftStickY(), controller.getRightStickX());
+
     }
 
-    public boolean isFinished() {
+
+    protected boolean isFinished() {
         return false;
     }
 
-    public void end () {
 
+    protected void interrupted(){
+        drive.drive(0, 0);
     }
 
-    public void interrupted() {
+    @Override
+    protected void end() {
 
     }
 }

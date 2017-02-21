@@ -14,6 +14,7 @@ public class Shoot extends Command {
         if(Robot.oi.shootState == true) {
             Robot.shooter.shoot();
             Robot.oi.shootState = false;
+
         } else {
             Robot.shooter.stopShooting();
             Robot.oi.shootState = true;
