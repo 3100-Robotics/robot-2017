@@ -30,6 +30,24 @@ public class OI {
     public double getModifier() {
         return controller.getRightTrigger();
     }
+    public double rotate() {
+
+        double leftTrigger = controller.getLeftTrigger();
+        double rightTrigger = controller.getRightTrigger();
+        double x = controller.getRightStickX();
+
+        if (leftTrigger > 0 || rightTrigger > 0) {
+            return (rightTrigger - leftTrigger) / 2;
+        } else {
+            return x;
+        }
+
+    }
+
+    public double move() {
+        return controller.getLeftStickY();
+    }
+
     public OI() {
         shootButton.whenPressed(new Shoot());
         pickupButton.whenPressed(new Pickup());

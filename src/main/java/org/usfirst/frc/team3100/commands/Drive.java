@@ -21,7 +21,7 @@ public class Drive extends Command{
 
     @Override
     protected void execute() {
-        drive.drive(controller.getLeftStickY(), controller.getRightStickX());
+        drive.drive(Robot.oi.move(), Robot.oi.rotate());
 
     }
 
