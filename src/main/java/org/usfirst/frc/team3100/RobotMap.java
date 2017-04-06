@@ -9,11 +9,11 @@ public class RobotMap {
     private static int leftDriveChannel = 1;
     private static int rightDriveChannel = 2;
     private static int shootChannel = 4;
-    //private static int turretRotChannel = ;
-    //private static int turretYChannel = ;
     private static int ballMotorChannel = 5;
     private static int climbMotorChannel = 3;
     public static int ballFeederChanel = 6;
+    private static int tankCycleMotor = 4;
+
 
     //For some reason these can't be defined as final.
     public static XBoxController  controls = new XBoxController(controller);
@@ -27,6 +27,7 @@ public class RobotMap {
     public static Encoder shootCheck = new Encoder(0,1);
     public static Gyro gyro = new ADXRS450_Gyro();
     public static Spark ballFeeder = new Spark(ballFeederChanel);
+    public static Jaguar tankCycle = new Jaguar(tankCycleMotor);
 
 
 

@@ -17,6 +17,8 @@ public class Shooter extends Subsystem {
 
     private static Spark ballFeeder = RobotMap.ballFeeder;
     private Spark shooterMotor = RobotMap.shootMotor;
+    private static Jaguar tankCycle = RobotMap.tankCycle;
+
     private Encoder rotSpeed = RobotMap.shootCheck;
 
 
@@ -29,11 +31,13 @@ public class Shooter extends Subsystem {
     public void shoot() {
         shooterMotor.set(-0.52);
         ballFeeder.set(1);
+        tankCycle.set(1);
     }
 
     public void stopShooting() {
         shooterMotor.set(0);
         ballFeeder.set(0);
+        tankCycle.set(0);
     }
 
 }

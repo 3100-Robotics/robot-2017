@@ -1,8 +1,9 @@
 package org.usfirst.frc.team3100;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3100.subsystems.*;
 import org.usfirst.frc.team3100.commands.*;
-
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.Relay;
@@ -15,9 +16,23 @@ public class Robot extends IterativeRobot {
     public static BallGrabber pickup;
     public static ClimbUp climb;
     public static Relay light;
+    CameraServer server;
+    private static ZMultiCamera camera = new ZMultiCamera("cam0", "cam5");
+    public NetworkTable table;
+    private static NetworkTable networkTable;
+
+    public static boolean autoVal;
+
+
 
 
     public void robotInit() {
+
+        camera.start();
+        table = NetworkTable.getTable("Test table");
+        networkTable = NetworkTable.getTable("3t");
+
+
         drive = new MainDrive();
         shooter = new Shooter();
         pickup = new BallGrabber();
@@ -30,10 +45,15 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Pickup", pickup);
         SmartDashboard.putData("Light", light);
         SmartDashboard.putData("Climb", climb);
+        server = CameraServer.getInstance();
+        //the camera name (ex "cam0") can be found through the roborio web interface
+        server.startAutomaticCapture();
 
     }
 
     public void autonomousInit() {
+        autoVal = true;
+        if(shooter != null) shooter.shoot();
 
     }
 
@@ -42,6 +62,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopPeriodic() {
+        autoVal = false;
         Scheduler.getInstance().run();
         //light.set(Relay.Value.kOn);
 
