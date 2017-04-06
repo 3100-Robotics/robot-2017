@@ -9,10 +9,11 @@ frc {
     team = "3100"
     robotClass = "org.usfirst.frc.team3100.Robot"
     rioHost = "roboRIO-3100-frc.local"
-    rioIP = "10.31.0.5"
+    rioIP = "172.22.11.2"
 }
 
 dependencies {
+    compile files("/Users/Aiden/wpilib/java/current/lib/niVisionWPI.jar")
     compile wpilib()
     compile talonSrx()
 }

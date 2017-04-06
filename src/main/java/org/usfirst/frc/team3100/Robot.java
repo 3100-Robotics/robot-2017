@@ -17,7 +17,7 @@ public class Robot extends IterativeRobot {
     public static ClimbUp climb;
     public static Relay light;
     CameraServer server;
-    private static ZMultiCamera camera = new ZMultiCamera("cam0", "cam5");
+    private static ZMultiCamera camera;
     public NetworkTable table;
     private static NetworkTable networkTable;
 
@@ -28,10 +28,9 @@ public class Robot extends IterativeRobot {
 
     public void robotInit() {
 
-        camera.start();
         table = NetworkTable.getTable("Test table");
         networkTable = NetworkTable.getTable("3t");
-
+        camera = new ZMultiCamera("cam0","cam5");
 
         drive = new MainDrive();
         shooter = new Shooter();

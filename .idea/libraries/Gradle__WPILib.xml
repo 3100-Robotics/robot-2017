@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="WPILib">
+  <library name="Gradle: WPILib">
     <CLASSES>
       <root url="jar://$USER_HOME$/wpilib/java/current/lib/WPILib.jar!/" />
     </CLASSES>
