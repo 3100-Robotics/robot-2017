@@ -60,7 +60,7 @@ public class ZMultiCamera implements Runnable{
 
     public void pushImage(){
         NIVision.IMAQdxGrab(currentCamera, lastFrame, 1);
-        cameraServer.setImage(lastFrame);
+        cameraServer.startAutomaticCapture();
     }
 
     public void startCapture(int id){

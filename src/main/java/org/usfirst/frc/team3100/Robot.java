@@ -53,7 +53,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         autoVal = true;
-        if(shooter != null) shooter.shoot();
+        shooter.shoot();
 
     }
 
