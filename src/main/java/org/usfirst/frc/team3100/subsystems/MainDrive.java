@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3100.subsystems;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
@@ -13,10 +15,10 @@ import java.lang.Math;
  */
 public class MainDrive extends PIDSubsystem {
 
-    private SpeedController leftMotor = RobotMap.leftMotor;
-    private SpeedController rightMotor = RobotMap.rightMotor;
-    private RobotDrive mainDrive = new RobotDrive(leftMotor, rightMotor);
-    private Gyro gyro = RobotMap.gyro;
+    private SpeedController leftMotor = new Spark(RobotMap.leftDriveChannel);
+    private SpeedController rightMotor = new Spark(RobotMap.rightDriveChannel);
+    private RobotDrive mainDrive;
+    private Gyro gyro = new ADXRS450_Gyro();
     private double targetMove = 0;
     private double targetRotate = 0;
     private boolean DEBUG = true;
@@ -46,6 +48,7 @@ public class MainDrive extends PIDSubsystem {
 
 
         super("MainDrive", 0.04,0,0.012);
+        mainDrive = new RobotDrive(leftMotor, rightMotor);
         setOutputRange(-1,1);
         getPIDController().setContinuous();
         enable();

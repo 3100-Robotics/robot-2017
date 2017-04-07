@@ -5,9 +5,6 @@ import org.usfirst.frc.team3100.Robot;
 import org.usfirst.frc.team3100.RobotMap;
 import org.usfirst.frc.team3100.subsystems.ClimbUp;
 
-/**
- * Created by Aiden on 2/3/17.
- */
 
 public class Climb extends Command {
     public Climb() {
