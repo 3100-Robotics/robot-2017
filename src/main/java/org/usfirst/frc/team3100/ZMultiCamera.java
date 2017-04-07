@@ -6,7 +6,7 @@ import com.ni.vision.NIVision.Image;
 import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.CameraServer;
 
-public class ZMultiCamera {
+public class ZMultiCamera  {
 
     private int camera1;
     private int camera2;

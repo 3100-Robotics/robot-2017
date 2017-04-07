@@ -12,11 +12,10 @@ import static edu.wpi.first.wpilibj.Relay.Value.kOff;
 import static edu.wpi.first.wpilibj.Relay.Value.kOn;
 
 
-public class Shooter extends Subsystem {
+public class Mixer extends Subsystem {
 
 
     private static Spark ballFeeder = new Spark(RobotMap.ballFeederChanel);
-    private Spark shooterMotor = new Spark(RobotMap.shootChannel);
     private static Spark tankCycle = new Spark(RobotMap.tankCycleMotor);
 
     private Encoder rotSpeed = new Encoder(0, 1);
@@ -28,13 +27,15 @@ public class Shooter extends Subsystem {
     }
 
 
-    public void shoot() {
+    public void mix() {
         //wait.dosomething.afterwait
-        shooterMotor.set(-0.53);
+        ballFeeder.set(1);
+        tankCycle.set(1);
     }
 
-    public void stopShooting() {
-        shooterMotor.set(0);
+    public void stopMixing() {
+        ballFeeder.set(0);
+        tankCycle.set(0);
     }
 
 }

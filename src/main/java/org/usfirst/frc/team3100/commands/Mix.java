@@ -3,20 +3,20 @@ package org.usfirst.frc.team3100.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team3100.Robot;
 
-public class Shoot extends Command {
-    public Shoot() {
-        super("Shoot");
+public class Mix extends Command {
+    public Mix() {
+        super("Mixer");
         requires(Robot.shooter);
 
     }
     public void initialize() {
-        if(Robot.oi.shootState == true) {
-            Robot.shooter.shoot();
-            Robot.oi.shootState = false;
+        if(Robot.oi.mixState == true) {
+            Robot.mixer.mix();
+            Robot.oi.mixState = false;
 
         } else {
-            Robot.shooter.stopShooting();
-            Robot.oi.shootState = true;
+            Robot.mixer.stopMixing();
+            Robot.oi.mixState = true;
         }
     }
 
