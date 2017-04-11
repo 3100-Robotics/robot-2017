@@ -6,17 +6,16 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team3100.Robot;
 import org.usfirst.frc.team3100.RobotMap;
 import org.usfirst.frc.team3100.commands.Drive;
 import java.lang.Math;
 
-/**
- * Created by nicco on 2/14/17.
- */
+
 public class MainDrive extends PIDSubsystem {
 
-    private SpeedController leftMotor = new Spark(RobotMap.leftDriveChannel);
-    private SpeedController rightMotor = new Spark(RobotMap.rightDriveChannel);
+    private SpeedController leftMotor = RobotMap.leftMotor;
+    private SpeedController rightMotor = RobotMap.rightMotor;
     private RobotDrive mainDrive;
     private Gyro gyro = new ADXRS450_Gyro();
     private double targetMove = 0;

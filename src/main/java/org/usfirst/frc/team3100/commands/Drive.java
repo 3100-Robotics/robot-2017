@@ -30,8 +30,9 @@ public class Drive extends Command              {
             drive.drive(controller.getLeftStickY(), controller.getRightStickX());
         } else {
             drive.drive(-.75,0);
-            Timer.delay(8);
+            Timer.delay(3.5);
             drive.drive(0,0);
+            Timer.delay(6.5);
         }
     }
 

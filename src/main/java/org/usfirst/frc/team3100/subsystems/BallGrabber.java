@@ -8,14 +8,14 @@ import org.usfirst.frc.team3100.RobotMap;
 
 public class BallGrabber extends Subsystem {
 
-    private Spark grabMotor = new Spark(RobotMap.ballMotorChannel);
+    private Spark grabMotor = RobotMap.ballMotor;
 
     public void initDefaultCommand() {
 
     }
 
     public void start() {
-        grabMotor.set(-1);
+        grabMotor.set(-.85);
     }
 
     public void stop() {

@@ -6,7 +6,7 @@ import org.usfirst.frc.team3100.Robot;
 public class Mix extends Command {
     public Mix() {
         super("Mixer");
-        requires(Robot.shooter);
+        requires(Robot.mixer);
 
     }
     public void initialize() {

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3100;
 
+//this is old code! It no longer works!
 
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
@@ -7,7 +8,6 @@ import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.CameraServer;
 
 public class ZMultiCamera  {
-
     private int camera1;
     private int camera2;
     private int currentCamera;
@@ -18,7 +18,6 @@ public class ZMultiCamera  {
     //private Image lastFrame;
 
     //private Thread cameraThread = new Thread(this);
-
     public ZMultiCamera(String cameraName1, String cameraName2) {
         //camera1 = NIVision.IMAQdxOpenCamera(cameraName1, NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         //camera2 = NIVision.IMAQdxOpenCamera(cameraName2, NIVision.IMAQdxCameraControlMode.CameraControlModeController);

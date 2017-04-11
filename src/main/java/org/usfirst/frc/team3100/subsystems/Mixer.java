@@ -15,11 +15,11 @@ import static edu.wpi.first.wpilibj.Relay.Value.kOn;
 public class Mixer extends Subsystem {
 
 
-    private static Spark ballFeeder = new Spark(RobotMap.ballFeederChanel);
-    private static Spark tankCycle = new Spark(RobotMap.tankCycleMotor);
+    //private static Spark ballFeeder = null;
+//    private static Spark tankCycle = null;
 
-    private Encoder rotSpeed = new Encoder(0, 1);
-
+    private static Spark ballFeeder = RobotMap.ballFeeder;
+    private static Spark tankCycle = RobotMap.tankCycle;
 
 
     public void initDefaultCommand() {
@@ -28,7 +28,6 @@ public class Mixer extends Subsystem {
 
 
     public void mix() {
-        //wait.dosomething.afterwait
         ballFeeder.set(1);
         tankCycle.set(1);
     }
